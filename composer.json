@@ -1,0 +1,15 @@
+{
+    "name": "zaidc/lightnovel-scraper",
+    "description": "Automatic Scrap Light Novels & Web Novel into madara theme from online source.",
+    "type": "project",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "zacksn"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "fabpot/goutte": "^4.0"
+    }
+}
