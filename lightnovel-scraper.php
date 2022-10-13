@@ -38,17 +38,24 @@
 
         public function lightnovel_admin_menu_option(){
             
-            add_menu_page(
+            $lnsPage = add_menu_page(
                 'Light Novel Scraper',
                 'Light Novel Scraper', 
                 'manage_options', 
                 'lightnovel-scraper', 
                 array($this, 'lightnovel_scraper'), 
             'dashicons-screenoptions', 2);
-            
-            add_submenu_page('lightnovel-settings', 'Light Novel Scraper', 'Light Novel Scraper',
-             'manage_options', 'lightnovel-scraper', array($this, 'lightnovel_scraper'), 1);
-            
+
+            add_action( 'load-' . $lnsPage, array($this, 'load_embedding_scripts') );
+        }
+        public function load_embedding_scripts() {
+            add_action( 'admin_enqueue_scripts', array($this, 'lns_enqueue_admin_scripts') );
+
+        }
+
+        public function lns_enqueue_admin_scripts(){
+            wp_enqueue_script( 'lns-ajax', 'https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js', array( 'jquery-ui-core', 'jquery-ui-tabs' ) );
+            wp_enqueue_style( 'lns-stylsheet', WP_LNS_URL . 'template/css/styles.css');
         }
 
         public function lightnovel_scraper(){        
