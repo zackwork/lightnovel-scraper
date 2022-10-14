@@ -1,4 +1,4 @@
-#**Light Novel Scraper For Madara Theme**
+#Light Novel Scraper For Madara Theme
 
 
 ![Light Novel Scraper](/resources/thumbnail.png)
