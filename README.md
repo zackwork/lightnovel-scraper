@@ -1,4 +1,4 @@
-#Light Novel Scraper For Madara Theme
+# Light Novel Scraper For Madara Theme
 
 
 ![Light Novel Scraper](/resources/thumbnail.png)
@@ -7,7 +7,7 @@
 
 ___
 
-##Installion Guide
+## Installion Guide
 
 * Clone this repo or download it as zip
 * Install the zip plugin on your wordpress site and activate it
