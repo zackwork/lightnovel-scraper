@@ -2,12 +2,12 @@
 
     /*
     Plugin Name: LightNovel Scraper
-    Plugin URI: 
+    Plugin URI: https://github.com/zackwork/lightnovel-scraper
     Description: Automatic Scrap Light Novels & Web Novel into madara theme from online source.
     Version: 1.0.0
     Author: ZackSnyder
-    Author URI: 
-    License: 
+    Author URI: https://github.com/zackwork
+    License: MIT
     */
 
     if(!defined('WP_LNS_PATH')){
@@ -15,6 +15,46 @@
     }
     if(!defined('WP_LNS_URL')){
         define('WP_LNS_URL', plugin_dir_url(__FILE__) );
+    }
+
+    if ( ! function_exists( 'lns_fs' ) ) {
+        // Create a helper function for easy SDK access.
+        function lns_fs() {
+            global $lns_fs;
+    
+            if ( ! isset( $lns_fs ) ) {
+                // Include Freemius SDK.
+                require_once dirname(__FILE__) . '/datasource/freemius/start.php';
+    
+                $lns_fs = fs_dynamic_init( array(
+                    'id'                  => '11256',
+                    'slug'                => 'lightnovel-scraper',
+                    'type'                => 'plugin',
+                    'public_key'          => 'pk_c8da53678c2545d66740f8a61d498',
+                    'is_premium'          => true,
+                    'premium_suffix'      => 'Premium',
+                    // If your plugin is a serviceware, set this option to false.
+                    'has_premium_version' => true,
+                    'has_addons'          => false,
+                    'has_paid_plans'      => true,
+                    'menu'                => array(
+                        'slug'           => 'lightnovel-scraper',
+                        'first-path'     => 'admin.php?page=lightnovel-scraper',
+                        'support'        => false,
+                    ),
+                    // Set the SDK to work in a sandbox mode (for development & testing).
+                    // IMPORTANT: MAKE SURE TO REMOVE SECRET KEY BEFORE DEPLOYMENT.
+                    'secret_key'          => 'undefined',
+                ) );
+            }
+    
+            return $lns_fs;
+        }
+    
+        // Init Freemius.
+        lns_fs();
+        // Signal that SDK was initiated.
+        do_action( 'lns_fs_loaded' );
     }
     
 
