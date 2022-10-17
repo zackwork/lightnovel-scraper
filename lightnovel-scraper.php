@@ -31,20 +31,14 @@
                     'slug'                => 'lightnovel-scraper',
                     'type'                => 'plugin',
                     'public_key'          => 'pk_c8da53678c2545d66740f8a61d498',
-                    'is_premium'          => true,
-                    'premium_suffix'      => 'Premium',
-                    // If your plugin is a serviceware, set this option to false.
-                    'has_premium_version' => true,
+                    'is_premium'          => false,
                     'has_addons'          => false,
-                    'has_paid_plans'      => true,
+                    'has_paid_plans'      => false,
                     'menu'                => array(
                         'slug'           => 'lightnovel-scraper',
                         'first-path'     => 'admin.php?page=lightnovel-scraper',
                         'support'        => false,
                     ),
-                    // Set the SDK to work in a sandbox mode (for development & testing).
-                    // IMPORTANT: MAKE SURE TO REMOVE SECRET KEY BEFORE DEPLOYMENT.
-                    'secret_key'          => 'undefined',
                 ) );
             }
     
